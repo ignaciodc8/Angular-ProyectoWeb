@@ -1,0 +1,64 @@
+<table>
+    <thead>
+        <tr>
+            <td>ID</td>
+            <td>Dni</td>
+            <td>Nombre</td>
+            <td>Apellido</td>
+            <td>Email</td>
+            <td>Direccion</td>
+            <td>Genero</td>
+            <td>Estado</td>
+            <td>Telefono</td>
+            <td>Grupo</td>
+        </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor="let student of studentList">
+            <td>{{student.id}}</td>
+            <td>{{student.dni}}</td>
+            <td>{{student.firstName}}</td>
+            <td>{{student.lastName}}</td>
+            <td>{{student.email}}</td>
+            <td>{{student.address}}</td>
+            <td>{{student.gender}}</td>
+            <td>{{student.status}}</td>
+            <td>{{student.phone}}</td>
+            <td>{{student.cohort}}</td>
+            <button onclick="update()">Update</button>
+            <button (click) ="delete(student.id)">Delete</button>
+        </tr>
+    </tbody>
+</table>
+<ng-template #ver let-modal>
+    <div>dni: <input type="text" [(ngModel)]="dni"> 
+        <br>
+        nombre: <input type="text" [(ngModel)]="firstName">
+        <br>
+        apellido: <input type="text" [(ngModel)]="lastName">
+        <br>
+        email: <input type="text" [(ngModel)]="email">
+        <br>
+        <button (click) ="save()">Save</button>
+    </div>
+
+</ng-template>
+<div>
+    <label for="dni">DNI:</label>
+    <input type="text" id="dni" [(ngModel)]="dni" />
+    <br>
+  
+    <label for="firstName">Nombre:</label>
+    <input type="text" id="firstName" [(ngModel)]="firstName" />
+    <br>
+  
+    <label for="lastName">Apellido:</label>
+    <input type="text" id="lastName" [(ngModel)]="lastName" />
+    <br>
+  
+    <label for="email">Email:</label>
+    <input type="text" id="email" [(ngModel)]="email" />
+    <br>
+  
+    <button (click)="save()">Guardar</button>
+  </div>
